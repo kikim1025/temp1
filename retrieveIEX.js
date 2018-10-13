@@ -2,7 +2,6 @@ const presentStockInfo = [];
 
 const retrieveIEX = function() {
     const stock = $(this).attr("stock-name");
-    console.log(stock);
     if (!presentStockInfo.includes(stock)) {
         const URL = "https://api.iextrading.com/1.0/stock/";
         const queryURL = URL + stock + "/batch?types=company,logo,price,news";
