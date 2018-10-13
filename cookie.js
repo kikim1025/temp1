@@ -1,9 +1,9 @@
-const favoriteList = document.cookie.split(" ");//
+const favoriteList = document.cookie.split(";");//
 
 const stockCookie = function() {
     const cookieName = $(this).attr("stock-name");
     if (!favoriteList.includes(cookieName)) {
-        document.cookie += cookieName + " ";
+        document.cookie += cookieName + ";";
         favoriteList.push(cookieName);
         addFavorite(cookieName);
     } else {
@@ -24,7 +24,9 @@ const deleteCookie = function() {
 }
 
 const loadCookie = function() {
-    for (let cookie of favoriteList) {
-        addFavorite(cookie);
-    }
+    if (favoriteList.length !== 0) {
+        for (let cookie of favoriteList) {
+            addFavorite(cookie);
+        }
+    }  
 }
