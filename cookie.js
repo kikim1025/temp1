@@ -1,4 +1,4 @@
-const favoriteList = document.cookie.split(";");//
+const favoriteList = document.cookie.split(";");
 
 const stockCookie = function() {
     const cookieName = $(this).attr("stock-name");
@@ -24,7 +24,7 @@ const deleteCookie = function() {
 }
 
 const loadCookie = function() {
-    if (favoriteList.length !== 0) {
+    if (favoriteList.length !== 1) {
         for (let cookie of favoriteList) {
             addFavorite(cookie);
         }
