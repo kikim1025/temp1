@@ -1,10 +1,10 @@
-const favoriteList = [];//
+const favoriteList = document.cookie.split(" ");//
 
 const stockCookie = function() {
     const cookieName = $(this).attr("stock-name");
     if (!favoriteList.includes(cookieName)) {
-        document.cookie = "stockName=" + cookieName + "; ";
-        console.log(document.cookie);
+        document.cookie += cookieName + " ";
+        favoriteList.push(cookieName);
         addFavorite(cookieName);
     } else {
         alert("Stock already added to favorite list!");
@@ -12,7 +12,6 @@ const stockCookie = function() {
 }
 
 const addFavorite = function(cookieName) {
-    favoriteList.push(cookieName);
     const newButton = $(`<button>`);
     newButton.addClass("stock-button col-3 col-lg-2");
     newButton.attr('stock-name', cookieName);
@@ -25,5 +24,7 @@ const deleteCookie = function() {
 }
 
 const loadCookie = function() {
-
+    for (let cookie of favoriteList) {
+        addFavorite(cookie);
+    }
 }
