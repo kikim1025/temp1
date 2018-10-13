@@ -24,10 +24,10 @@ const deleteCookie = function() {
 }
 
 const loadCookie = function() {
-    if (favoriteList.length !== 1) {
+    if (favoriteList[0] !== "") {
         for (let cookie of favoriteList) {
             addFavorite(cookie);
         }
     }  
 }
-console.log("3");
+console.log("4");
