@@ -30,3 +30,4 @@ const loadCookie = function() {
         }
     }  
 }
+console.log("1");
